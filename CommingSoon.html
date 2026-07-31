@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nexus | Coming Soon</title>
+    
+    <!-- Load Inter Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        nexus: {
+                            dark: '#0B0E14',
+                            panel: '#161B22',
+                            cyan: '#00F0FF',
+                            purple: '#7000FF',
+                            blue: '#3B82F6',
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float 6s ease-in-out infinite',
+                        'float-medium': 'float 4s ease-in-out infinite',
+                        'pulse-glow': 'pulseGlow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        pulseGlow: {
+                            '0%, 100%': { opacity: 1, filter: 'brightness(1)' },
+                            '50%': { opacity: .7, filter: 'brightness(1.5)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #0B0E14;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Custom Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #00F0FF 0%, #7000FF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Glassmorphism utility */
+        .glass {
+            background: rgba(22, 27, 34, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        /* Input autofill fix for dark mode */
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus, 
+        input:-webkit-autofill:active{
+            -webkit-box-shadow: 0 0 0 30px #161B22 inset !important;
+            -webkit-text-fill-color: white !important;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-6px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col justify-center items-center relative selection:bg-nexus-cyan selection:text-nexus-dark">
+
+    <!-- Ambient Background Glows -->
+    <div class="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
+        <div class="absolute top-[-10%] left-[-10%] w-[40vw] h-[40vw] bg-nexus-purple opacity-20 rounded-full blur-[120px] animate-float-slow"></div>
+        <div class="absolute bottom-[-10%] right-[-5%] w-[35vw] h-[35vw] bg-nexus-cyan opacity-20 rounded-full blur-[100px] animate-float-medium" style="animation-delay: -2s;"></div>
+        <!-- Grid pattern overlay -->
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDM5LjVoNDBWNDBoLTQweiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIvPjxwYXRoIGQ9Ik0zOS41IDBoLjV2NDBoLS41eiIgZmlsbD0icmdiYSgyNTUsMjU1LDI1NSwwLjAyKSIvPjwvc3ZnPg==')] opacity-50"></div>
+    </div>
+
+    <main class="w-full max-w-4xl mx-auto px-6 py-12 flex flex-col items-center text-center z-10">
+        
+        <!-- Logo -->
+        <div class="mb-8 flex items-center justify-center gap-3">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-nexus-cyan to-nexus-purple flex items-center justify-center shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold tracking-tight text-white">NEXUS</h1>
+        </div>
+
+        <!-- Headline -->
+        <h2 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">
+            The next generation of <br class="hidden md:block" />
+            <span class="text-gradient animate-pulse-glow">community spaces.</span>
+        </h2>
+        
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mb-12">
+            A new dimension of communication is coming. High-fidelity voice, seamless chat, and a hub for your world. Get ready to connect like never before.
+        </p>
+
+        <!-- Countdown Timer -->
+        <div class="flex flex-wrap justify-center gap-4 md:gap-6 mb-16 w-full">
+            <!-- Days -->
+            <div class="glass flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl shadow-xl transition-transform hover:scale-105 duration-300">
+                <span id="days" class="text-3xl md:text-5xl font-bold text-white tracking-tighter">00</span>
+                <span class="text-xs md:text-sm text-nexus-cyan font-medium uppercase tracking-widest mt-1">Days</span>
+            </div>
+            <!-- Hours -->
+            <div class="glass flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl shadow-xl transition-transform hover:scale-105 duration-300">
+                <span id="hours" class="text-3xl md:text-5xl font-bold text-white tracking-tighter">00</span>
+                <span class="text-xs md:text-sm text-nexus-cyan font-medium uppercase tracking-widest mt-1">Hours</span>
+            </div>
+            <!-- Minutes -->
+            <div class="glass flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl shadow-xl transition-transform hover:scale-105 duration-300">
+                <span id="minutes" class="text-3xl md:text-5xl font-bold text-white tracking-tighter">00</span>
+                <span class="text-xs md:text-sm text-nexus-cyan font-medium uppercase tracking-widest mt-1">Minutes</span>
+            </div>
+            <!-- Seconds -->
+            <div class="glass flex flex-col items-center justify-center w-24 h-24 md:w-32 md:h-32 rounded-2xl shadow-xl transition-transform hover:scale-105 duration-300">
+                <span id="seconds" class="text-3xl md:text-5xl font-bold text-white tracking-tighter">00</span>
+                <span class="text-xs md:text-sm text-nexus-purple font-medium uppercase tracking-widest mt-1">Seconds</span>
+            </div>
+        </div>
+
+        <!-- Notify Me Section -->
+        <div class="w-full max-w-md glass p-6 rounded-3xl relative overflow-hidden">
+            <!-- Subtle gradient top border -->
+            <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-nexus-cyan via-nexus-blue to-nexus-purple"></div>
+            
+            <h3 class="text-xl font-semibold mb-2 text-white">Get early access</h3>
+            <p class="text-sm text-gray-400 mb-5">Be the first to know when we launch and secure your exclusive username.</p>
+            
+            <!-- Form Container -->
+            <form id="notifyForm" class="flex flex-col sm:flex-row gap-3">
+                <input 
+                    type="email" 
+                    id="emailInput"
+                    placeholder="Enter your email address" 
+                    required
+                    class="flex-1 bg-nexus-dark/50 border border-gray-700 focus:border-nexus-cyan text-white text-sm rounded-xl px-4 py-3 outline-none transition-all placeholder:text-gray-600 focus:shadow-[0_0_15px_rgba(0,240,255,0.2)]"
+                >
+                <button 
+                    type="submit" 
+                    class="bg-gradient-to-r from-nexus-cyan to-nexus-blue hover:to-nexus-purple text-nexus-dark font-semibold text-sm px-6 py-3 rounded-xl transition-all duration-300 hover:shadow-[0_0_20px_rgba(0,240,255,0.4)] transform hover:-translate-y-0.5"
+                >
+                    Notify Me
+                </button>
+            </form>
+
+            <!-- Success Message (Hidden by default) -->
+            <div id="successMessage" class="hidden flex-col items-center justify-center py-2 animate-[fadeIn_0.5s_ease-out]">
+                <div class="w-10 h-10 rounded-full bg-green-500/20 flex items-center justify-center mb-2">
+                    <svg class="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                </div>
+                <p class="text-green-400 font-medium">You're on the list!</p>
+                <p class="text-xs text-gray-400 mt-1">We'll email you when Nexus is ready.</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer / Socials -->
+    <footer class="mt-auto py-8 text-center z-10">
+        <div class="flex justify-center gap-6 mb-4">
+            <!-- Twitter / X -->
+            <a href="#" class="text-gray-500 hover:text-nexus-cyan transition-colors duration-300">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
+                </svg>
+            </a>
+            <!-- GitHub -->
+            <a href="#" class="text-gray-500 hover:text-white transition-colors duration-300">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clip-rule="evenodd"></path>
+                </svg>
+            </a>
+            <!-- Discord (using generic chat icon as placeholder for Nexus social) -->
+            <a href="#" class="text-gray-500 hover:text-nexus-purple transition-colors duration-300">
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.317 4.37a19.791 19.791 0 00-4.885-1.515.074.074 0 00-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 00-5.487 0 12.64 12.64 0 00-.617-1.25.077.077 0 00-.079-.037A19.736 19.736 0 003.677 4.37a.07.07 0 00-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 00.031.057 19.9 19.9 0 005.993 3.03.078.078 0 00.084-.028c.462-.63.874-1.295 1.226-1.994a.076.076 0 00-.041-.106 13.107 13.107 0 01-1.872-.892.077.077 0 01-.008-.128 10.2 10.2 0 00.372-.292.074.074 0 01.077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 01.078.01c.12.098.246.198.373.292a.077.077 0 01-.006.127 12.299 12.299 0 01-1.873.892.077.077 0 00-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 00.084.028 19.839 19.839 0 006.002-3.03.077.077 0 00.032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 00-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/>
+                </svg>
+            </a>
+        </div>
+        <p class="text-gray-600 text-sm">© 2026 Nexus Platform. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // --- Countdown Timer Logic ---
+        // Set launch date to 14 days from current load for demo purposes
+        const launchDate = new Date();
+        launchDate.setDate(launchDate.getDate() + 14);
+        launchDate.setHours(launchDate.getHours() + 5); // Add some random hours
+        const countDownDate = launchDate.getTime();
+
+        // Update the countdown every 1 second
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
+
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Display the result
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+            document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+            document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+
+            // If the countdown is finished
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }, 1000);
+
+        // --- Notify form handling ---
+        const form = document.getElementById('notifyForm');
+        const emailInput = document.getElementById('emailInput');
+        const successMessage = document.getElementById('successMessage');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = emailInput.value.trim();
+            if (!email) return;
+            // Simple email validation
+            const re = /\S+@\S+\.\S+/;
+            if (!re.test(email)) {
+                emailInput.classList.add('ring', 'ring-red-500');
+                setTimeout(() => emailInput.classList.remove('ring', 'ring-red-500'), 1500);
+                return;
+            }
+
+            // Simulate async submission
+            form.classList.add('opacity-60', 'pointer-events-none');
+            setTimeout(() => {
+                form.reset();
+                form.classList.remove('opacity-60', 'pointer-events-none');
+                successMessage.classList.remove('hidden');
+                successMessage.classList.add('flex');
+                // hide after 4 seconds
+                setTimeout(() => {
+                    successMessage.classList.add('hidden');
+                    successMessage.classList.remove('flex');
+                }, 4000);
+            }, 700);
+        });
+
+    </script>
+</body>
+</html>
